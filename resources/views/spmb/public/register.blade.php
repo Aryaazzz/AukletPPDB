@@ -1,7 +1,7 @@
 @extends('layouts.mobile-spmb')
 
 @php
-    $title = 'Formulir Pendaftaran SPMB Online - SMA Dashcool';
+    $title = 'Formulir Pendaftaran PPDB Online - Auklet - SuperApp Sekolah Digital';
 @endphp
 
 @section('content')

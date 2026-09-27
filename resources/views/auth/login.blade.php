@@ -3,21 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login Portal - Dashcool</title>
+    <title>Login Portal - Auklet PPDB</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('auklet-logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('auklet-logo.png') }}">
 
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800" rel="stylesheet" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     @vite(['resources/css/app.css'])
 
     <style>
         [x-cloak] { display: none !important; }
-        body { font-family: 'Instrument Sans', sans-serif; }
+        body, html, * { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
     </style>
 </head>
 <body class="h-full bg-slate-50 flex items-start justify-center pt-12 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-y-auto">
@@ -30,9 +30,11 @@
         
         <!-- HEADER / BRANDING -->
         <div class="text-center">
-            <img src="{{ asset('logo.webp') }}" class="w-20 h-20 sm:w-24 sm:h-24 object-contain mx-auto mb-3 drop-shadow-sm grayscale brightness-0" alt="Dashcool Logo">
-            <h1 class="text-2xl font-bold text-gray-900 tracking-tight sm:text-3xl">Dashcool</h1>
-            <p class="mt-1 text-sm text-gray-500">Sistem Informasi Manajemen Sekolah Terpadu</p>
+            <img src="{{ asset('auklet-logo.png') }}" class="w-16 h-16 sm:w-20 sm:h-20 object-contain mx-auto mb-3 drop-shadow-xs" alt="Auklet Logo">
+            <h1 class="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl flex items-center justify-center gap-2">
+                Auklet <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            </h1>
+            <p class="mt-1 text-xs sm:text-sm text-gray-500 font-medium">SuperApp Sekolah Digital &bull; Portal PPDB Online</p>
         </div>
 
         <!-- PUBLIC SPMB REGISTRATION BANNER FOR STUDENTS & PARENTS -->
@@ -40,7 +42,7 @@
             <div class="flex items-center justify-between">
                 <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/15 text-slate-100 text-[11px] font-bold">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    SPMB Online Dibuka
+                    PPDB Online Dibuka
                 </span>
                 <span class="text-[11px] font-semibold text-slate-200">T.A 2026/2027</span>
             </div>
@@ -55,7 +57,7 @@
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                     </svg>
-                    <span>Daftar SPMB</span>
+                    <span>Daftar PPDB</span>
                 </a>
 
                 <a href="{{ route('spmb.public.status') }}" class="py-2.5 px-3 rounded-xl bg-white/15 hover:bg-white/25 active:scale-95 text-white text-xs font-bold text-center backdrop-blur-sm border border-white/20 transition-all flex items-center justify-center gap-1.5">
@@ -120,10 +122,10 @@
                         <input type="email" 
                                id="email" 
                                name="email" 
-                               value="{{ old('email', 'admin@dashcool.sch.id') }}" 
+                               value="{{ old('email', 'admin@auklet.sch.id') }}" 
                                required 
                                autofocus 
-                               placeholder="nama@dashcool.sch.id"
+                               placeholder="nama@auklet.sch.id"
                                class="w-full pl-10 pr-4 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-500/20 focus:border-slate-600 transition-all text-gray-900 placeholder-gray-400">
                     </div>
                 </div>
@@ -194,7 +196,7 @@
 
         <!-- FOOTER -->
         <p class="text-center text-xs text-gray-400">
-            &copy; {{ date('Y') }} Dashcool. All rights reserved.
+            &copy; {{ date('Y') }} Auklet PPDB. All rights reserved.
         </p>
     </div>
 </body>

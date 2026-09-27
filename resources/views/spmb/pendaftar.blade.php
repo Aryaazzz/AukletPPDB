@@ -3,18 +3,15 @@
 @section('content')
 <div class="space-y-6" x-data="{ quickModalOpen: false, selectedPendaftar: null, selectedStatus: '' }">
     
-    <!-- SUB NAVIGATION BAR -->
-    @include('spmb.partials.nav')
-
     <!-- PAGE HEADER -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-            <h1 class="text-2xl font-bold text-gray-900 tracking-tight">Daftar Pendaftar SPMB</h1>
+            <h1 class="text-2xl font-bold text-gray-900 tracking-tight">Daftar Pendaftar PPDB</h1>
             <p class="text-xs sm:text-sm text-gray-500 mt-1">Kelola, saring, dan verifikasi berkas pendaftaran calon peserta didik baru.</p>
         </div>
 
         <div class="flex items-center gap-3">
-            <a href="{{ route('spmb.create') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-md shadow-slate-900/20 transition-all">
+            <a href="{{ route('spmb.create') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md shadow-blue-600/20 transition-all">
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                 </svg>
@@ -31,7 +28,7 @@
 
     <!-- QUICK STATUS PILLS / SUMMARY -->
     <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">
-        <a href="{{ route('spmb.pendaftar') }}" class="p-3.5 rounded-xl border transition-all text-center {{ request('status') == null ? 'bg-slate-900 text-white border-slate-800 shadow-md shadow-slate-800/20' : 'bg-white text-gray-700 border-gray-100 hover:bg-gray-50' }}">
+        <a href="{{ route('spmb.pendaftar') }}" class="p-3.5 rounded-xl border transition-all text-center {{ request('status') == null ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-600/20' : 'bg-white text-gray-700 border-gray-100 hover:bg-gray-50' }}">
             <p class="text-[11px] uppercase font-bold tracking-wider {{ request('status') == null ? 'text-indigo-100' : 'text-gray-400' }}">Semua Data</p>
             <p class="text-xl font-extrabold mt-0.5">{{ $counts['total'] }}</p>
         </a>
@@ -96,7 +93,7 @@
 
             <!-- FILTER ACTION BUTTONS -->
             <div class="flex items-center gap-2">
-                <button type="submit" class="flex-1 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5">
+                <button type="submit" class="flex-1 py-2.5 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5">
                     <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
                     </svg>

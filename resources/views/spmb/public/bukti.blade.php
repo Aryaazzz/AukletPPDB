@@ -7,13 +7,13 @@
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800" rel="stylesheet" />
 
     @vite(['resources/css/app.css'])
 
     <style>
-        body {
-            font-family: 'Instrument Sans', serif, sans-serif;
+        body, html, * {
+            font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
             color: #111827;
             background-color: #f8fafc;
         }
@@ -63,19 +63,19 @@
         
         <!-- KOP SURAT RESMI -->
         <div class="flex items-center gap-5 pb-4 border-b-2 border-gray-900 text-center sm:text-left">
-            <img src="{{ asset('logo.webp') }}" class="w-20 h-20 object-contain flex-shrink-0" alt="Logo Dashcool">
+            <img src="{{ asset('auklet-logo.png') }}" class="w-16 h-16 object-contain flex-shrink-0" alt="Logo Auklet">
             <div class="flex-1 space-y-0.5">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500">YAYASAN PENDIDIKAN DASHCOOL NUSANTARA</h3>
-                <h1 class="text-xl sm:text-2xl font-black tracking-tight text-gray-950 leading-none">SMA DASHCOOL JAKARTA</h1>
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500">YAYASAN PENDIDIKAN AUKLET NUSANTARA</h3>
+                <h1 class="text-xl sm:text-2xl font-black tracking-tight text-gray-950 leading-none">SMA AUKLET NUSANTARA</h1>
                 <p class="text-xs text-gray-600">Jl. Raya Kebon Jeruk No. 88, Kebon Jeruk, Jakarta Barat 11530</p>
-                <p class="text-xs text-gray-500 font-mono">Telp: (021) 582-1234 &bull; Email: spmb@dashcool.sch.id &bull; Website: www.dashcool.sch.id</p>
+                <p class="text-xs text-gray-500 font-mono">Telp: (021) 582-1234 &bull; Email: ppdb@auklet.sch.id &bull; Website: www.auklet.sch.id</p>
             </div>
         </div>
 
         <!-- DOCUMENT TITLE -->
         <div class="text-center space-y-1 pt-2">
             <h2 class="text-base sm:text-lg font-black tracking-tight uppercase text-gray-950 underline decoration-2 underline-offset-4">
-                TANDA BUKTI PENDAFTARAN SPMB ONLINE
+                TANDA BUKTI PENDAFTARAN PPDB ONLINE
             </h2>
             <p class="text-xs text-gray-500 font-semibold">
                 Tahun Ajaran {{ $pendaftar->jalur->tahunAjaran->nama ?? '2026/2027' }} &bull; {{ $sistemSettings['gelombang'] ?? 'Gelombang I' }}
@@ -190,7 +190,7 @@
         <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200 text-xs text-gray-600 space-y-1.5">
             <p class="font-bold text-gray-900">Catatan Penting:</p>
             <ol class="list-decimal list-inside space-y-0.5 text-[11px] leading-relaxed">
-                <li>Kartu ini adalah bukti resmi bahwa calon siswa telah terdaftar pada sistem SPMB Online SMA Dashcool.</li>
+                <li>Kartu ini adalah bukti resmi bahwa calon siswa telah terdaftar pada sistem PPDB Online Auklet - SuperApp Sekolah Digital.</li>
                 <li>Simpan kartu bukti ini untuk keperluan verifikasi berkas fisik dan daftar ulang kelulusan.</li>
                 <li>Pantau status seleksi secara berkala pada portal: <strong>{{ route('spmb.public.status') }}</strong>.</li>
             </ol>
@@ -212,7 +212,7 @@
             <div class="space-y-16">
                 <div>
                     <p class="text-gray-500">Jakarta, {{ $pendaftar->created_at->translatedFormat('d F Y') }}</p>
-                    <p class="font-bold text-gray-900">Panitia SPMB Dashcool,</p>
+                    <p class="font-bold text-gray-900">Panitia PPDB Auklet,</p>
                 </div>
                 <div>
                     <p class="font-bold text-gray-950 underline">( Panitia Penerimaan Siswa Baru )</p>

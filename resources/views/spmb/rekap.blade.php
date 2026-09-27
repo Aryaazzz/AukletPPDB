@@ -4,9 +4,6 @@
 {{-- Hallmark · macrostructure: Workbench · genre: modern-minimal · tone: soft · designed-as-app --}}
 <div class="space-y-6">
     
-    <!-- SUB NAVIGATION BAR -->
-    @include('spmb.partials.nav')
-
     <!-- PAGE TITLE & QUICK ACTIONS (MATCHING SPMB DASHBOARD) -->
     <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div class="space-y-1.5">
@@ -15,7 +12,7 @@
                 <span>Laporan Statistik Pendaftaran Realtime</span>
             </div>
             <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Rekapitulasi Data SPMB
+                Rekapitulasi Data PPDB
             </h1>
             <p class="text-sm text-slate-500 max-w-2xl leading-relaxed">
                 Analisis menyeluruh pendaftar per jalur, status seleksi, sekolah asal, dan alokasi kelas.
@@ -29,7 +26,7 @@
                 </svg>
                 <span>Cetak Laporan</span>
             </button>
-            <a href="{{ route('spmb.rekap.export') }}" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow-sm transition-colors">
+            <a href="{{ route('spmb.rekap.export') }}" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold shadow-sm transition-colors">
                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
@@ -43,7 +40,7 @@
         <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
             <span class="text-xs font-semibold text-slate-500 block uppercase tracking-wider">Total Pendaftar</span>
             <div class="text-2xl font-bold text-slate-900 mt-1 tabular-nums">{{ number_format($totalPendaftar, 0, ',', '.') }}</div>
-            <span class="text-xs font-semibold text-slate-600 mt-1 block">Seluruh Jalur SPMB</span>
+            <span class="text-xs font-semibold text-slate-600 mt-1 block">Seluruh Jalur PPDB</span>
         </div>
         <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
             <span class="text-xs font-semibold text-amber-700 block uppercase tracking-wider">Menunggu</span>
@@ -88,7 +85,7 @@
                             <span class="font-mono font-bold text-slate-900 tabular-nums">{{ $rj['terisi'] }} / {{ $rj['kuota'] }} Kursi</span>
                         </div>
                         <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden">
-                            <div class="bg-slate-900 h-2 rounded-full transition-all duration-300" style="width: {{ min($rj['persen'], 100) }}%"></div>
+                            <div class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: {{ min($rj['persen'], 100) }}%"></div>
                         </div>
                         <div class="flex items-center justify-between text-xs text-slate-500">
                             <span class="tabular-nums">{{ $rj['persen'] }}% Terisi</span>

@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? 'Dashboard SPMB - Dashcool' }}</title>
+    <title>{{ $title ?? 'Auklet' }}</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('auklet-logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('auklet-logo.png') }}">
 
-    <!-- Google Fonts (Plus Jakarta Sans & Instrument Sans) -->
+    <!-- Google Fonts (Plus Jakarta Sans) -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700|instrument-sans:400,500,600,700" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800" rel="stylesheet" />
 
     <!-- Alpine.js & Chart.js CDN -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -23,7 +23,7 @@
 
     <style>
         [x-cloak] { display: none !important; }
-        body { font-family: 'Plus Jakarta Sans', 'Instrument Sans', sans-serif; }
+        body, html, * { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
     </style>
 </head>
 <body class="h-full antialiased text-slate-800 bg-[#FAF9F6]"
@@ -54,12 +54,14 @@
              class="fixed inset-y-0 left-0 z-50 w-72 bg-white shadow-2xl flex flex-col lg:hidden border-r border-gray-100">
             
             <!-- Mobile Sidebar Header -->
-            <div class="h-16 flex items-center justify-between px-6 border-b border-gray-100">
-                <div class="flex items-center gap-3">
-                    <img src="{{ asset('logo.webp') }}" class="w-11 h-11 object-contain flex-shrink-0 grayscale brightness-0" alt="Dashcool Logo">
+            <div class="h-16 flex items-center justify-between px-4 border-b border-gray-100">
+                <div class="flex items-center gap-2.5">
+                    <img src="{{ asset('auklet-logo.png') }}" class="w-7 h-7 object-contain flex-shrink-0" alt="Auklet Logo">
                     <div>
-                        <h1 class="text-base font-bold text-gray-900 tracking-tight leading-none">Dashcool</h1>
-                        <span class="text-xs text-indigo-600 font-semibold">Sistem Informasi</span>
+                        <h1 class="text-base font-bold text-slate-900 tracking-tight leading-none flex items-center gap-1.5">
+                            Auklet <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        </h1>
+                        <span class="text-[11px] text-slate-500 font-medium block mt-0.5">SuperApp Sekolah Digital</span>
                     </div>
                 </div>
                 <button @click="mobileOpen = false" class="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100">
@@ -77,12 +79,12 @@
             <!-- Mobile Footer Profile -->
             <div class="p-4 border-t border-gray-100 bg-gray-50/50">
                 <div class="flex items-center gap-3">
-                    <img class="w-9 h-9 rounded-full ring-2 ring-indigo-500/20 object-cover" 
-                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150" 
-                         alt="Avatar Admin">
+                    <div class="w-9 h-9 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 shadow-2xs">
+                        A
+                    </div>
                     <div class="min-w-0 flex-1">
-                        <p class="text-sm font-semibold text-gray-900 truncate">Admin Sekolah</p>
-                        <p class="text-xs text-gray-500 truncate">admin@dashcool.sch.id</p>
+                        <p class="text-sm font-bold text-slate-900 truncate">Andi Pratama</p>
+                        <p class="text-xs text-slate-500 truncate">admin@auklet.sch.id</p>
                     </div>
                 </div>
             </div>
@@ -94,11 +96,13 @@
             
             <!-- Sidebar Header -->
             <div class="h-16 flex items-center px-4 border-b border-gray-100 justify-between">
-                <a href="{{ route('dashboard') }}" class="flex items-center gap-3 overflow-hidden">
-                    <img src="{{ asset('logo.webp') }}" class="w-11 h-11 object-contain flex-shrink-0 grayscale brightness-0" alt="Dashcool Logo">
+                <a href="{{ route('dashboard') }}" class="flex items-center gap-2.5 overflow-hidden">
+                    <img src="{{ asset('auklet-logo.png') }}" class="w-7 h-7 object-contain flex-shrink-0" alt="Auklet Logo">
                     <div x-show="!isCollapsed" x-transition class="truncate">
-                        <h1 class="text-base font-bold text-gray-900 tracking-tight leading-none">Dashcool</h1>
-                        <span class="text-xs text-indigo-600 font-semibold">Sistem Informasi</span>
+                        <h1 class="text-base font-bold text-slate-900 tracking-tight leading-none flex items-center gap-1.5">
+                            Auklet <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        </h1>
+                        <span class="text-[11px] text-slate-500 font-medium block mt-0.5">SuperApp Sekolah Digital</span>
                     </div>
                 </a>
 
@@ -119,12 +123,12 @@
             <!-- Desktop Sidebar Footer -->
             <div class="p-3 border-t border-gray-100 bg-gray-50/50">
                 <div class="flex items-center gap-3" :class="isCollapsed ? 'justify-center' : ''">
-                    <img class="w-9 h-9 rounded-full ring-2 ring-indigo-500/20 object-cover flex-shrink-0" 
-                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150" 
-                         alt="Avatar Admin">
+                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-xs flex-shrink-0 shadow-2xs">
+                        A
+                    </div>
                     <div x-show="!isCollapsed" x-transition class="min-w-0 flex-1">
-                        <p class="text-xs font-semibold text-gray-900 truncate">Administrator</p>
-                        <p class="text-[11px] text-gray-500 truncate">Panitia SPMB</p>
+                        <p class="text-xs font-bold text-slate-900 truncate">Andi Pratama</p>
+                        <span class="inline-block text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.2 rounded-full">Panitia PPDB</span>
                     </div>
                 </div>
             </div>
@@ -147,7 +151,7 @@
 
                     <div class="min-w-0">
                         <h2 class="text-lg sm:text-xl font-bold text-gray-900 truncate tracking-tight">
-                            {{ $headerTitle ?? 'SPMB Online' }}
+                            {{ $headerTitle ?? 'PPDB Online' }}
                         </h2>
                     </div>
                 </div>
@@ -161,7 +165,7 @@
                             </svg>
                         </div>
                         <input type="text" 
-                               placeholder="Cari nama calon siswa, NISN, atau no. pendaftaran..." 
+                               placeholder="Cari nama calon siswa, NISN, atau no. pendaftaran PPDB..." 
                                class="w-full pl-9 pr-10 py-2 text-xs sm:text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 transition-all placeholder-gray-400">
                         <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
                             <kbd class="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-semibold text-gray-400 bg-white rounded border border-gray-200">⌘K</kbd>
@@ -227,15 +231,15 @@
                     <div class="relative" x-data="{ open: false }">
                         <button @click="open = !open" 
                                 @click.outside="open = false" 
-                                class="flex items-center gap-3 p-1 rounded-xl hover:bg-gray-100/80 transition-colors focus:outline-none">
-                            <img class="w-8 h-8 rounded-full ring-2 ring-indigo-600/30 object-cover" 
-                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150" 
-                                 alt="Avatar Admin">
-                            <div class="hidden sm:block text-left">
-                                <p class="text-xs font-semibold text-gray-900 leading-tight">Admin Utama</p>
-                                <p class="text-[10px] text-gray-500 font-medium">Panitia SPMB</p>
+                                class="flex items-center gap-2.5 p-1.5 rounded-xl hover:bg-slate-100/80 transition-colors focus:outline-none">
+                            <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-extrabold flex items-center justify-center text-xs shadow-2xs">
+                                A
                             </div>
-                            <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <div class="hidden sm:block text-left">
+                                <p class="text-xs font-bold text-slate-900 leading-tight">Andi Pratama</p>
+                                <p class="text-[10px] text-slate-500 font-medium">Panitia PPDB</p>
+                            </div>
+                            <svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                             </svg>
                         </button>
@@ -252,8 +256,8 @@
                              class="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-gray-100 py-1.5 z-50">
                             
                             <div class="px-4 py-3 border-b border-gray-100 bg-gray-50/50">
-                                <p class="text-xs font-semibold text-gray-900">Administrator SPMB</p>
-                                <p class="text-[11px] text-gray-500 font-mono mt-0.5">NIP. 198504122010011004</p>
+                                <p class="text-xs font-bold text-gray-900">Andi Pratama</p>
+                                <p class="text-[11px] text-gray-500 font-mono mt-0.5">admin@auklet.sch.id</p>
                             </div>
 
                             <a href="#" class="flex items-center gap-2.5 px-4 py-2.5 text-xs font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-colors">
@@ -267,18 +271,18 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.28z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
-                                Pengaturan Jalur SPMB
+                                Pengaturan Jalur PPDB
                             </a>
 
                             <div class="my-1 border-t border-gray-100"></div>
 
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button type="submit" class="w-full text-left flex items-center gap-2.5 px-4 py-2.5 text-xs font-semibold text-rose-600 hover:bg-rose-50 transition-colors">
+                                <button type="submit" class="w-full text-left flex items-center gap-2.5 px-4 py-2.5 text-xs font-bold text-rose-600 hover:bg-rose-50 transition-colors">
                                     <svg class="w-4 h-4 text-rose-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                                     </svg>
-                                    Logout dari System
+                                    Keluar dari Akun
                                 </button>
                             </form>
                         </div>
@@ -290,7 +294,7 @@
             <!-- MAIN BODY CONTENT -->
             <main class="flex-1 py-6 px-4 sm:px-6 lg:px-8 w-full">
                 @if (session('success'))
-                    <div class="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3">
+                    <div class="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-3 shadow-2xs">
                         <svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -304,12 +308,13 @@
             <!-- FOOTER -->
             <footer class="mt-auto border-t border-gray-200/60 bg-white py-4 px-4 sm:px-6 lg:px-8">
                 <div class="w-full flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
-                    <p>&copy; {{ date('Y') }} Dashcool - Sistem Informasi Penerimaan Murid Baru Online</p>
-                    <p class="text-gray-400">Versi 2.4.0 &bull; Modul SPMB v1.0</p>
+                    <p>&copy; {{ date('Y') }} Auklet - SuperApp Sekolah Digital &bull; Modul PPDB Online</p>
+                    <p class="text-gray-400">Auklet Connect v2.4.0</p>
                 </div>
             </footer>
         </div>
     </div>
+
 
     @stack('scripts')
 </body>

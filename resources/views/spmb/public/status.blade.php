@@ -142,7 +142,7 @@
                             </h4>
                             <p class="text-xs text-slate-500 mt-0.5">
                                 @if($isAccepted)
-                                    Selamat! Anda resmi <strong>DITERIMA</strong> sebagai Peserta Didik Baru di SMA Dashcool.
+                                    Selamat! Anda resmi <strong>DITERIMA</strong> sebagai Peserta Didik Baru di Auklet.
                                 @elseif($isRejected)
                                     Mohon maaf, Anda belum dapat diterima pada periode pendaftaran ini.
                                 @else

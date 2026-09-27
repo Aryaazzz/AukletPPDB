@@ -1,8 +1,8 @@
 @extends('layouts.mobile-spmb')
 
 @php
-    $title = 'Bukti Pendaftaran SPMB - ' . $pendaftar->no_pendaftaran;
-    $waText = urlencode("Halo, berikut bukti pendaftaran SPMB Online SMA Dashcool:\nNomor Pendaftaran: {$pendaftar->no_pendaftaran}\nNama: {$pendaftar->nama_lengkap}\nNISN: {$pendaftar->nisn}\nJalur: " . ($pendaftar->jalur->nama_jalur ?? 'Reguler') . "\nStatus: Menunggu Verifikasi\n\nCek status berkala di: " . route('spmb.public.status', ['search' => $pendaftar->no_pendaftaran]));
+    $title = 'Bukti Pendaftaran PPDB - ' . $pendaftar->no_pendaftaran;
+    $waText = urlencode("Halo, berikut bukti pendaftaran PPDB Online Auklet:\nNomor Pendaftaran: {$pendaftar->no_pendaftaran}\nNama: {$pendaftar->nama_lengkap}\nNISN: {$pendaftar->nisn}\nJalur: " . ($pendaftar->jalur->nama_jalur ?? 'Reguler') . "\nStatus: Menunggu Verifikasi\n\nCek status berkala di: " . route('spmb.public.status', ['search' => $pendaftar->no_pendaftaran]));
 @endphp
 
 @section('content')
@@ -12,7 +12,7 @@
     <!-- SUCCESS HERO CARD -->
     <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm text-center space-y-3">
         <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto border border-emerald-200">
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-currentColor" stroke-width="2.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
             </svg>
         </div>
@@ -37,18 +37,18 @@
         </div>
     </div>
 
-    <!-- DIGITAL ID / KARTU BUKTI PENDAFTARAN SPMB -->
+    <!-- DIGITAL ID / KARTU BUKTI PENDAFTARAN PPDB -->
     <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden" id="kartuBukti">
         
         <!-- Kartu Header Letterhead -->
         <div class="bg-slate-900 text-white p-5 flex items-center justify-between gap-3">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-white/10 p-1 flex items-center justify-center border border-white/20 flex-shrink-0">
-                    <img src="{{ asset('logo.webp') }}" class="w-8 h-8 object-contain" alt="Logo">
+                    <img src="{{ asset('auklet-logo.png') }}" class="w-8 h-8 object-contain" alt="Auklet Logo">
                 </div>
                 <div>
-                    <h2 class="text-sm font-extrabold tracking-tight leading-tight">SMA DASHCOOL NUSANTARA</h2>
-                    <p class="text-xs text-slate-300">Tanda Peserta SPMB Online &bull; T.A {{ $pendaftar->jalur->tahunAjaran->nama ?? '2026/2027' }}</p>
+                    <h2 class="text-sm font-extrabold tracking-tight leading-tight">SMA AUKLET NUSANTARA</h2>
+                    <p class="text-xs text-slate-300">Tanda Peserta PPDB Online &bull; T.A {{ $pendaftar->jalur->tahunAjaran->nama ?? '2026/2027' }}</p>
                 </div>
             </div>
             <div class="text-right flex-shrink-0">

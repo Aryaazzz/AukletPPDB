@@ -42,8 +42,8 @@ Route::get('/', function () {
 // Protected Routes (Requires Authentication)
 Route::middleware(['auth.custom'])->group(function () {
     
-    // Main Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Main Dashboard (PPDB Dashboard)
+    Route::get('/dashboard', [SpmbController::class, 'index'])->name('dashboard');
 
     // SPMB Route Group with prefix /spmb and name prefix spmb.
     Route::prefix('spmb')->name('spmb.')->group(function () {

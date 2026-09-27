@@ -8,18 +8,15 @@
     selectedJalur: null
 }">
     
-    <!-- SUB NAVIGATION BAR -->
-    @include('spmb.partials.nav')
-
     <!-- PAGE TITLE & QUICK ACTIONS (MATCHING SPMB DASHBOARD) -->
     <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div class="space-y-1.5">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">
                 <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>Modul Konfigurasi Central SPMB</span>
+                <span>Modul Konfigurasi Central PPDB</span>
             </div>
             <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                Set SPMB & Pengaturan Jalur
+                Set PPDB & Pengaturan Jalur
             </h1>
             <p class="text-sm text-slate-500 max-w-2xl leading-relaxed">
                 Konfigurasi relasi tahun ajaran, gelombang pendaftaran, syarat, pengumuman, dan kuota tiap jalur.
@@ -27,7 +24,7 @@
         </div>
 
         <div class="flex items-center gap-3 flex-wrap flex-shrink-0">
-            <button @click="createModalOpen = true" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow-sm transition-colors">
+            <button @click="createModalOpen = true" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold shadow-sm transition-colors">
                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                 </svg>
@@ -36,11 +33,11 @@
         </div>
     </div>
 
-    <!-- 1. FORM SET SPMB (PENGATURAN SISTEM GLOBAL) -->
+    <!-- 1. FORM SET PPDB (PENGATURAN SISTEM GLOBAL) -->
     <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-5">
         <div class="flex items-center justify-between border-b border-gray-100 pb-4">
             <div>
-                <h3 class="text-base font-bold text-gray-900">1. Set SPMB (Pengaturan Umum Sistem)</h3>
+                <h3 class="text-base font-bold text-gray-900">1. Set PPDB (Pengaturan Umum Sistem)</h3>
                 <p class="text-xs text-gray-500">Konfigurasi relasi tahun ajaran aktif, status pendaftaran, pengumuman, dan persyaratan</p>
             </div>
             <div class="flex items-center gap-2">
@@ -80,7 +77,7 @@
                 </div>
 
                 <div>
-                    <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Status Sistem SPMB <span class="text-rose-500">*</span></label>
+                    <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Status Sistem PPDB <span class="text-rose-500">*</span></label>
                     <select name="status_spmb" class="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs font-bold text-gray-800 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600">
                         <option value="aktif" {{ ($sistemSettings['status_spmb'] ?? 'aktif') == 'aktif' ? 'selected' : '' }}>BUKA / AKTIF</option>
                         <option value="tutup" {{ ($sistemSettings['status_spmb'] ?? 'aktif') == 'tutup' ? 'selected' : '' }}>TUTUP / DIBATASI</option>
@@ -121,11 +118,11 @@
             </div>
 
             <div class="flex items-center justify-end border-t border-gray-100 pt-3">
-                <button type="submit" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold hover:bg-slate-800 shadow-md shadow-indigo-600/20 transition-all inline-flex items-center gap-2">
+                <button type="submit" class="px-5 py-2.5 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 shadow-md shadow-blue-600/20 transition-all inline-flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
-                    Simpan Pengaturan SPMB
+                    Simpan Pengaturan PPDB
                 </button>
             </div>
         </form>

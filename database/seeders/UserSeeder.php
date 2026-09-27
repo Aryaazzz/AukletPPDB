@@ -10,6 +10,25 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
+        // Primary Admin Account (Auklet)
+        User::updateOrCreate(
+            ['email' => 'admin@auklet.sch.id'],
+            [
+                'name' => 'Andi Pratama',
+                'password' => Hash::make('password'),
+            ]
+        );
+
+        // PPDB Committee Account (Auklet)
+        User::updateOrCreate(
+            ['email' => 'ppdb@auklet.sch.id'],
+            [
+                'name' => 'Panitia PPDB',
+                'password' => Hash::make('password'),
+            ]
+        );
+
+        // Legacy compatibility accounts
         User::updateOrCreate(
             ['email' => 'admin@dashcool.sch.id'],
             [

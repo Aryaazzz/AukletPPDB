@@ -12,9 +12,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Plus Jakarta Sans"', '"Instrument Sans"', ...defaultTheme.fontFamily.sans],
+                sans: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
                 display: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
-                body: ['"Instrument Sans"', ...defaultTheme.fontFamily.sans],
+                body: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
             },
             borderRadius: {
                 '2xl': '1rem',

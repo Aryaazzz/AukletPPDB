@@ -29,7 +29,7 @@
                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                 </svg>
-                <span>Kelola SPMB Online</span>
+                <span>Kelola PPDB Online</span>
             </a>
             <a href="{{ route('spmb.pendaftar') }}" 
                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200/80 text-slate-800 text-xs sm:text-sm font-semibold border border-slate-200/80 transition-colors">
@@ -64,7 +64,7 @@
         />
 
         <x-stat-card 
-            title="Pendaftar SPMB Baru" 
+            title="Pendaftar PPDB Baru" 
             value="{{ $stats['pendaftar_spmb']['value'] }}"
             color="emerald"
             change="{{ $stats['pendaftar_spmb']['change'] }}"
@@ -163,10 +163,10 @@
             </div>
         </div>
 
-        <!-- QUICK SPMB ACTION SUMMARY -->
+        <!-- QUICK PPDB ACTION SUMMARY -->
         <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm flex flex-col justify-between space-y-4">
             <div>
-                <h3 class="text-base font-bold text-slate-900">Alur Aksi Panitia SPMB</h3>
+                <h3 class="text-base font-bold text-slate-900">Alur Aksi Panitia PPDB</h3>
                 <p class="text-xs text-slate-500 mb-4">Akses cepat tugas verifikasi berkas pendaftar</p>
 
                 <div class="space-y-2.5">

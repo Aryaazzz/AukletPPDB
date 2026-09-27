@@ -4,9 +4,6 @@
 {{-- Hallmark · macrostructure: Workbench · genre: modern-minimal · tone: soft · designed-as-app --}}
 <div class="space-y-6 w-full">
     
-    <!-- SUB NAVIGATION BAR -->
-    @include('spmb.partials.nav')
-
     <!-- PAGE TITLE & QUICK ACTIONS (MATCHING SPMB DASHBOARD) -->
     <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div class="space-y-1.5">
@@ -18,7 +15,7 @@
                 Input Pendaftaran Siswa Baru
             </h1>
             <p class="text-sm text-slate-500 max-w-2xl leading-relaxed">
-                Isi formulir berikut untuk mendaftarkan calon peserta didik baru langsung ke dalam basis data sistem SPMB.
+                Isi formulir berikut untuk mendaftarkan calon peserta didik baru langsung ke dalam basis data sistem PPDB.
             </p>
         </div>
 
@@ -27,7 +24,7 @@
                 <span class="text-xs text-slate-400 uppercase tracking-wider block font-semibold">No. Pendaftaran Sistem</span>
                 <span class="text-base font-mono font-bold text-slate-900 tabular-nums">{{ $nextNumber }}</span>
             </div>
-            <a href="{{ route('spmb.public.register') }}" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow-sm transition-colors">
+            <a href="{{ route('spmb.public.register') }}" target="_blank" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold shadow-sm transition-colors">
                 <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
                 </svg>
@@ -60,7 +57,7 @@
         <!-- SECTION 1: PILIHAN JALUR SPMB -->
         <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
             <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-                <div class="w-8 h-8 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center font-bold text-xs">1</div>
+                <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">1</div>
                 <div>
                     <h3 class="text-base font-bold text-slate-900">Jalur & Gelombang Pendaftaran</h3>
                     <p class="text-xs text-slate-500">Pilih jalur seleksi calon siswa</p>
@@ -69,10 +66,10 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
                 @foreach ($jalurs as $j)
-                    <label class="relative flex flex-col p-4 rounded-2xl border-2 transition-colors cursor-pointer select-none has-[:checked]:border-slate-900 has-[:checked]:bg-slate-50 border-slate-200/80 bg-white hover:bg-slate-50/50">
+                    <label class="relative flex flex-col p-4 rounded-2xl border-2 transition-colors cursor-pointer select-none has-[:checked]:border-blue-600 has-[:checked]:bg-blue-50/60 border-slate-200/80 bg-white hover:bg-slate-50/50">
                         <input type="radio" name="jalur_id" value="{{ $j->id }}" class="sr-only" {{ old('jalur_id', $loop->first ? $j->id : '') == $j->id ? 'checked' : '' }}>
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-black px-2 py-0.5 rounded-md bg-slate-900 text-white">{{ $j->kode_jalur }}</span>
+                            <span class="text-xs font-black px-2 py-0.5 rounded-md bg-blue-600 text-white">{{ $j->kode_jalur }}</span>
                             <div class="text-right">
                                 @if($j->tahunAjaran)
                                     <span class="text-xs font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-full mr-1">T.A {{ $j->tahunAjaran->nama }}</span>
@@ -90,7 +87,7 @@
         <!-- SECTION 2: DATA DIRI CALON SISWA -->
         <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
             <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-                <div class="w-8 h-8 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center font-bold text-xs">2</div>
+                <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">2</div>
                 <div>
                     <h3 class="text-base font-bold text-slate-900">Data Diri Calon Siswa</h3>
                     <p class="text-xs text-slate-500">Identitas pribadi lengkap pendaftar</p>
@@ -183,7 +180,7 @@
         <!-- SECTION 3: DATA ASAL SEKOLAH -->
         <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
             <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-                <div class="w-8 h-8 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center font-bold text-xs">3</div>
+                <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">3</div>
                 <div>
                     <h3 class="text-base font-bold text-slate-900">Data Sekolah Asal</h3>
                     <p class="text-xs text-slate-500">Informasi sekolah sebelumnya (SMP/MTs)</p>
@@ -207,7 +204,7 @@
         <!-- SECTION 4: DATA ORANG TUA / WALI -->
         <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
             <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
-                <div class="w-8 h-8 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center font-bold text-xs">4</div>
+                <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">4</div>
                 <div>
                     <h3 class="text-base font-bold text-slate-900">Data Orang Tua / Wali</h3>
                     <p class="text-xs text-slate-500">Informasi identitas dan kontak orang tua</p>
@@ -253,7 +250,7 @@
         <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm p-6 space-y-4">
             <div class="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-xl bg-slate-100 text-slate-900 flex items-center justify-center font-bold text-xs">5</div>
+                    <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs">5</div>
                     <div>
                         <h3 class="text-base font-bold text-slate-900">Upload Berkas & Dokumen Pendaftaran</h3>
                         <p class="text-xs text-slate-500">Lampirkan scan/foto dokumen calon peserta didik (Format: JPG, PNG, PDF &bull; Maks: 3-5MB)</p>
@@ -304,7 +301,7 @@
                         <span class="text-[10px] font-mono text-slate-500">PDF/JPG/PNG</span>
                     </div>
                     <input type="file" name="berkas_ijazah" accept="application/pdf,image/jpeg,image/png" 
-                           class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-slate-900 file:text-white hover:file:bg-slate-800 file:cursor-pointer cursor-pointer border border-slate-200 rounded-xl bg-white p-1">
+                           class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white hover:file:bg-blue-700 file:cursor-pointer cursor-pointer border border-slate-200 rounded-xl bg-white p-1">
                     <p class="text-[11px] text-slate-400">Surat Keterangan Lulus / Ijazah SMP, maks 5MB.</p>
                 </div>
 
@@ -315,7 +312,7 @@
                         <span class="text-[10px] font-mono text-slate-500">PDF/JPG/PNG</span>
                     </div>
                     <input type="file" name="berkas_sertifikat" accept="application/pdf,image/jpeg,image/png" 
-                           class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-slate-900 file:text-white hover:file:bg-slate-800 file:cursor-pointer cursor-pointer border border-slate-200 rounded-xl bg-white p-1">
+                           class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white hover:file:bg-blue-700 file:cursor-pointer cursor-pointer border border-slate-200 rounded-xl bg-white p-1">
                     <p class="text-[11px] text-slate-400">Piagam lomba akademik / non-akademik (khusus jalur prestasi/tambahan), maks 5MB.</p>
                 </div>
 
@@ -327,7 +324,7 @@
             <a href="{{ route('spmb.pendaftar') }}" class="px-5 py-2.5 rounded-xl border border-slate-200 text-slate-700 text-sm font-semibold hover:bg-slate-100 transition-colors">
                 Batal
             </a>
-            <button type="submit" class="px-6 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-sm font-bold shadow-sm transition-colors inline-flex items-center gap-2">
+            <button type="submit" class="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold shadow-sm transition-colors inline-flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>

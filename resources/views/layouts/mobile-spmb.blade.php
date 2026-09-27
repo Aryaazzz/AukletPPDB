@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0f172a">
-    <meta name="description" content="Pendaftaran Peserta Didik Baru (SPMB) Online - SMA Dashcool">
+    <meta name="description" content="Pendaftaran Peserta Didik Baru (PPDB) Online - Auklet - SuperApp Sekolah Digital">
 
-    <title>{{ $title ?? 'SPMB Online - Pendaftaran Siswa Baru' }}</title>
+    <title>{{ $title ?? 'Auklet' }}</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('auklet-logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('auklet-logo.png') }}">
 
-    <!-- Google Fonts (Plus Jakarta Sans & Instrument Sans) -->
+    <!-- Google Fonts (Plus Jakarta Sans) -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800|instrument-sans:400,500,600,700" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800" rel="stylesheet" />
 
     <!-- Alpine.js & Canvas Confetti -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -24,8 +24,8 @@
 
     <style>
         [x-cloak] { display: none !important; }
-        body { 
-            font-family: 'Plus Jakarta Sans', 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+        body, html, * { 
+            font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -46,13 +46,13 @@
             
             <!-- School Brand / Logo -->
             <a href="{{ route('spmb.public.register') }}" class="flex items-center gap-2.5 min-w-0 transition-opacity hover:opacity-90">
-                <img src="{{ asset('logo.webp') }}" class="w-8 h-8 rounded-lg object-contain border border-slate-200/80 bg-white p-0.5 flex-shrink-0 shadow-2xs" alt="Logo Dashcool">
+                <img src="{{ asset('auklet-logo.png') }}" class="w-8 h-8 rounded-lg object-contain flex-shrink-0 shadow-2xs" alt="Logo Auklet">
                 <div class="min-w-0">
                     <div class="flex items-center gap-1.5 flex-wrap">
-                        <span class="font-extrabold text-sm sm:text-base tracking-tight text-slate-900 truncate">SPMB Online</span>
+                        <span class="font-extrabold text-sm sm:text-base tracking-tight text-slate-900 truncate">PPDB Online</span>
                         <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded-full flex-shrink-0">Buka</span>
                     </div>
-                    <p class="text-[11px] text-slate-500 font-medium leading-none truncate hidden sm:block mt-0.5">SMA Dashcool Nusantara</p>
+                    <p class="text-[11px] text-slate-500 font-medium leading-none truncate hidden sm:block mt-0.5">SuperApp Sekolah Digital</p>
                 </div>
             </a>
 
@@ -133,7 +133,7 @@
                         <span class="absolute -top-1 -right-1 w-2 h-2 bg-slate-900 rounded-full"></span>
                     @endif
                 </div>
-                <span class="text-[11px] font-semibold tracking-tight">Daftar SPMB</span>
+                <span class="text-[11px] font-semibold tracking-tight">Daftar PPDB</span>
             </a>
 
             <!-- 2. Cek Status Seleksi -->
@@ -166,7 +166,7 @@
 
     <!-- FOOTER DESKTOP -->
     <footer class="no-print max-w-3xl mx-auto px-4 text-center mt-auto pt-6 text-xs text-slate-400">
-        <p>&copy; {{ date('Y') }} Panitia SPMB SMA Dashcool Nusantara. Hotline WA: <a href="https://wa.me/6283863125827" target="_blank" class="text-emerald-700 font-semibold hover:underline">0838-6312-5827</a></p>
+        <p>&copy; {{ date('Y') }} Panitia PPDB Auklet - SuperApp Sekolah Digital. Hotline WA: <a href="https://wa.me/6283863125827" target="_blank" class="text-emerald-700 font-semibold hover:underline">0838-6312-5827</a></p>
         <p class="mt-1">Pendaftaran Resmi Berbasis Sistem Informasi Terpadu</p>
     </footer>
 
