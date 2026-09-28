@@ -12,9 +12,10 @@
     <link rel="icon" type="image/png" href="{{ asset('auklet-logo.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('auklet-logo.png') }}">
 
-    <!-- Google Fonts (Plus Jakarta Sans) -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800" rel="stylesheet" />
+    <!-- Google Fonts (Manrope & IBM Plex Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Alpine.js & Canvas Confetti -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -25,9 +26,10 @@
     <style>
         [x-cloak] { display: none !important; }
         body, html, * { 
-            font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+            font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
+        h1, h2, h3, h4, .font-heading { font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif !important; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 

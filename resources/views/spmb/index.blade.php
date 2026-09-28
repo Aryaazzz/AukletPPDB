@@ -259,13 +259,13 @@
                             usePointStyle: true,
                             boxWidth: 8,
                             padding: 15,
-                            font: { family: "'Plus Jakarta Sans', sans-serif", size: 11, weight: '500' }
+                            font: { family: "'IBM Plex Sans', sans-serif", size: 11, weight: '500' }
                         }
                     },
                     tooltip: {
                         backgroundColor: '#1e293b',
-                        titleFont: { family: "'Plus Jakarta Sans', sans-serif", size: 12, weight: 'bold' },
-                        bodyFont: { family: "'Plus Jakarta Sans', sans-serif", size: 11 },
+                        titleFont: { family: "'Manrope', sans-serif", size: 12, weight: 'bold' },
+                        bodyFont: { family: "'IBM Plex Sans', sans-serif", size: 11 },
                         padding: 10,
                         cornerRadius: 8,
                         displayColors: true
@@ -274,12 +274,12 @@
                 scales: {
                     x: {
                         grid: { display: false },
-                        ticks: { font: { family: "'Plus Jakarta Sans', sans-serif", size: 11 }, color: '#64748b' }
+                        ticks: { font: { family: "'IBM Plex Sans', sans-serif", size: 11 }, color: '#64748b' }
                     },
                     y: {
                         border: { dash: [4, 4] },
                         grid: { color: '#f1f5f9' },
-                        ticks: { font: { family: "'Plus Jakarta Sans', sans-serif", size: 11 }, color: '#64748b' }
+                        ticks: { font: { family: "'IBM Plex Sans', sans-serif", size: 11 }, color: '#64748b' }
                     }
                 }
             }

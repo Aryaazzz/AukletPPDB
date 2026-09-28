@@ -12,9 +12,10 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
-                display: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
-                body: ['"Plus Jakarta Sans"', ...defaultTheme.fontFamily.sans],
+                sans: ['"IBM Plex Sans"', ...defaultTheme.fontFamily.sans],
+                heading: ['"Manrope"', ...defaultTheme.fontFamily.sans],
+                display: ['"Manrope"', ...defaultTheme.fontFamily.sans],
+                body: ['"IBM Plex Sans"', ...defaultTheme.fontFamily.sans],
             },
             borderRadius: {
                 '2xl': '1rem',

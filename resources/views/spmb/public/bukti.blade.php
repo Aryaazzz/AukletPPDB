@@ -6,16 +6,20 @@
     <title>Bukti Pendaftaran SPMB - {{ $pendaftar->no_pendaftaran }} - {{ $pendaftar->nama_lengkap }}</title>
     
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
         body, html, * {
-            font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+            font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
             color: #111827;
             background-color: #f8fafc;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif !important;
         }
 
         @media print {

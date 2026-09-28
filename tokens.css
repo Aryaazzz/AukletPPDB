@@ -23,8 +23,9 @@
     --color-danger-soft: oklch(95% 0.04 25);
 
     /* Typography */
-    --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-    --font-body: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
 
     /* Radius & Spacing */
     --radius-card: 1rem;

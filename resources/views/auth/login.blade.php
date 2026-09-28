@@ -9,15 +9,17 @@
     <link rel="icon" type="image/png" href="{{ asset('auklet-logo.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('auklet-logo.png') }}">
 
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700,800" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
         [x-cloak] { display: none !important; }
-        body, html, * { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
+        body, html, * { font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif !important; }
     </style>
 </head>
 <body class="h-full bg-slate-50 flex items-start justify-center pt-12 pb-12 px-4 sm:px-6 lg:px-8 relative overflow-y-auto">

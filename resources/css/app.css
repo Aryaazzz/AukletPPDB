@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 @import '../../tokens.css';
 @tailwind base;
 @tailwind components;
@@ -5,8 +6,12 @@
 
 body,
 html {
-    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
     font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, .font-heading {
+    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {

@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SpmbController;
 use App\Http\Controllers\MasterDataController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 
 // Guest Routes
 Route::middleware(['guest.custom'])->group(function () {
@@ -45,8 +46,14 @@ Route::middleware(['auth.custom'])->group(function () {
     // Main Dashboard (PPDB Dashboard)
     Route::get('/dashboard', [SpmbController::class, 'index'])->name('dashboard');
 
+    // User Profile Routes
+    Route::get('/profil', [ProfileController::class, 'show'])->name('profil');
+    Route::put('/profil', [ProfileController::class, 'update'])->name('profil.update');
+    Route::put('/profil/password', [ProfileController::class, 'updatePassword'])->name('profil.password');
+
     // SPMB Route Group with prefix /spmb and name prefix spmb.
     Route::prefix('spmb')->name('spmb.')->group(function () {
+        Route::get('/profil', [ProfileController::class, 'show'])->name('profil');
         Route::get('/', [SpmbController::class, 'index'])->name('index');
         
         // 1. Input SPMB Pendaftar Routes
