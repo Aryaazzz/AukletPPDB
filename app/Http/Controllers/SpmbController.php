@@ -8,6 +8,7 @@ use App\Models\SpmbSet;
 use App\Models\TahunAjaran;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class SpmbController extends Controller
 {
@@ -139,6 +140,81 @@ class SpmbController extends Controller
     }
 
     /**
+     * Generate compact PDF rekapitulasi
+     */
+    public function rekapPdf()
+    {
+        // Reuse data logic similar to index
+        $totalCount = Pendaftaran::count();
+        $diverifikasiCount = Pendaftaran::where('status', 'diverifikasi')->count();
+        $diterimaCount = Pendaftaran::where('status', 'diterima')->count();
+        $menungguCount = Pendaftaran::where('status', 'menunggu')->count();
+
+        $stats = [
+            'total' => [
+                'value' => number_format($totalCount, 0, ',', '.'),
+                'change' => '+14.2% minggu ini',
+                'changeType' => 'increase',
+                'subtitle' => 'Target: 475 Kuota'
+            ],
+            'diverifikasi' => [
+                'value' => number_format($diverifikasiCount, 0, ',', '.'),
+                'change' => $totalCount > 0 ? round(($diverifikasiCount / $totalCount) * 100, 1) . '% dari total' : '0%',
+                'changeType' => 'increase',
+                'subtitle' => 'Telah terverifikasi'
+            ],
+            'diterima' => [
+                'value' => number_format($diterimaCount, 0, ',', '.'),
+                'change' => 'Gelombang I',
+                'changeType' => 'increase',
+                'subtitle' => 'Lolos seleksi'
+            ],
+            'ditolak' => [
+                'value' => number_format(Pendaftaran::where('status', 'ditolak')->count(), 0, ',', '.'),
+                'change' => 'Berkas tidak sesuai',
+                'changeType' => 'decrease',
+                'subtitle' => 'Perlu perbaikan'
+            ],
+        ];
+
+        // Jalur data
+        $jalurs = SpmbSet::with('tahunAjaran')->withCount('pendaftarans')->get();
+        $rekapJalur = $jalurs->map(function ($j) {
+            $terisi = $j->pendaftarans_count;
+            $persen = $j->kuota > 0 ? round(($terisi / $j->kuota) * 100, 1) : 0;
+            return [
+                'nama' => $j->nama_jalur,
+                'kode' => $j->kode_jalur,
+                'terisi' => $terisi,
+                'kuota' => $j->kuota,
+                'persen' => $persen,
+            ];
+        })->toArray();
+
+        // Top sekolah asal
+        $rekapSekolah = Pendaftaran::select('asal_sekolah as sekolah', DB::raw('count(*) as total'))
+            ->groupBy('asal_sekolah')
+            ->orderByDesc('total')
+            ->take(5)
+            ->get()
+            ->toArray();
+
+        $rekapStatus = [
+            'menunggu' => $menungguCount,
+            'diverifikasi' => $diverifikasiCount,
+            'diterima' => $diterimaCount,
+        ];
+
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('spmb.rekap-pdf', [
+            'totalPendaftar' => $totalCount,
+            'rekapStatus' => $rekapStatus,
+            'rekapJalur' => $rekapJalur,
+            'rekapSekolah' => $rekapSekolah,
+        ]);
+        return $pdf->download('rekap-ppdb.pdf');
+    }
+
+    /**
      * 1. INPUT SPMB - Form Tambah Pendaftar Baru
      */
     public function create()
@@ -158,34 +234,46 @@ class SpmbController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'nama_lengkap' => 'required|string|max:255',
-            'nisn' => 'required|string|max:20|unique:spmb,nisn',
-            'nik' => 'nullable|string|max:16',
-            'no_kk' => 'nullable|string|max:16',
-            'jenis_kelamin' => 'required|in:L,P',
-            'tempat_lahir' => 'required|string|max:100',
-            'tanggal_lahir' => 'required|date',
-            'agama' => 'required|string|max:50',
-            'alamat' => 'required|string',
-            'telepon' => 'nullable|string|max:20',
-            'email' => 'nullable|email|max:255',
-            'asal_sekolah' => 'required|string|max:255',
-            'npsn_asal' => 'nullable|string|max:20',
-            'nama_ayah' => 'required|string|max:255',
-            'pekerjaan_ayah' => 'nullable|string|max:100',
-            'no_hp_ayah' => 'nullable|string|max:20',
-            'nama_ibu' => 'required|string|max:255',
-            'pekerjaan_ibu' => 'nullable|string|max:100',
-            'no_hp_ibu' => 'nullable|string|max:20',
-            'jalur_id' => 'required|exists:spmb_set,id',
-            'catatan_verifikasi' => 'nullable|string',
-            'berkas_foto' => 'nullable|file|mimes:jpeg,jpg,png,webp|max:3072',
-            'berkas_kk' => 'nullable|file|mimes:pdf,jpeg,jpg,png|max:5120',
-            'berkas_akta' => 'nullable|file|mimes:pdf,jpeg,jpg,png|max:5120',
-            'berkas_ijazah' => 'nullable|file|mimes:pdf,jpeg,jpg,png|max:5120',
-            'berkas_sertifikat' => 'nullable|file|mimes:pdf,jpeg,jpg,png|max:5120',
+        // Manual validation with stricter rules
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
+            // Text fields – letters and spaces only
+            'nama_lengkap'   => ['required','string','max:255','regex:/^[\pL\s]+$/u'],
+            'nama_ayah'      => ['required','string','max:255','regex:/^[\pL\s]+$/u'],
+            'nama_ibu'       => ['required','string','max:255','regex:/^[\pL\s]+$/u'],
+            'pekerjaan_ayah' => ['required','string','max:100','regex:/^[\pL\s]+$/u'],
+            'pekerjaan_ibu'  => ['required','string','max:100','regex:/^[\pL\s]+$/u'],
+            // Numeric only fields
+            'nisn'        => ['required','digits:10','unique:spmb,nisn'],
+            'nik'         => ['required','digits_between:1,16'],
+            'no_kk'       => ['required','digits_between:1,16'],
+            'telepon'     => ['required','digits_between:1,20'],
+            'no_hp_ayah'  => ['required','digits_between:1,20'],
+            'no_hp_ibu'   => ['required','digits_between:1,20'],
+            'npsn_asal'   => ['required','digits_between:1,20'],
+            // Other required fields
+            'jenis_kelamin' => ['required','in:L,P'],
+            'tempat_lahir'  => ['required','string','max:100'],
+            'tanggal_lahir' => ['required','date'],
+            'agama'         => ['required','string','max:50'],
+            'alamat'        => ['required','string'],
+            'email'         => ['required','email','max:255'],
+            'asal_sekolah'   => ['required','string','max:255'],
+            'jalur_id'       => ['required','exists:spmb_set,id'],
+            'catatan_verifikasi' => ['nullable','string'],
+            // File uploads unchanged but required
+            'berkas_foto' => ['required','file','mimes:jpeg,jpg,png,webp','max:3072'],
+            'berkas_kk'   => ['required','file','mimes:pdf,jpeg,jpg,png','max:5120'],
+            'berkas_akta' => ['required','file','mimes:pdf,jpeg,jpg,png','max:5120'],
+            'berkas_ijazah' => ['required','file','mimes:pdf,jpeg,jpg,png','max:5120'],
+            'berkas_sertifikat' => ['required','file','mimes:pdf,jpeg,jpg,png','max:5120'],
         ]);
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('validation_warning', 'Data tidak valid. Silakan periksa dan perbaiki bagian yang ditandai.');
+        }
+        $validated = $validator->validated();
 
         $validated['no_pendaftaran'] = 'SPMB-' . date('Y') . '-' . sprintf('%03d', Pendaftaran::count() + 1);
         $validated['status'] = 'menunggu';

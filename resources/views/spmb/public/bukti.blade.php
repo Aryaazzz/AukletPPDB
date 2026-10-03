@@ -13,6 +13,21 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
+        /* Compact print layout - force single page */
+        @media print {
+            body { margin: 0; padding: 0; }
+            .max-w-3xl { max-width: none !important; width: 100% !important; }
+            .p-8 { padding: 0.5rem !important; }
+            .text-xs { font-size: 9px !important; }
+            .text-sm { font-size: 10px !important; }
+            .space-y-6 > * + * { margin-top: 0.4rem !important; }
+            .border-b { border-bottom-width: 0.5px !important; }
+
+        }
+        /* Warning alert styling */
+        .warning-alert { background: #fffbeb; border-left: 4px solid #fbbf24; padding: 0.75rem 1rem; margin-top: 1rem; }
+        .warning-alert p { margin: 0; font-size: 0.875rem; color: #92400e; }
+
         body, html, * {
             font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
             color: #111827;
@@ -103,6 +118,7 @@
         </div>
 
         <!-- BIODATA CALON SISWA -->
+        <div class="grid grid-cols-2 gap-4">
         <div class="space-y-2">
             <h4 class="text-xs font-bold uppercase tracking-wider text-gray-900 bg-gray-100 px-3 py-1.5 rounded-lg">
                 I. DATA PRIBADI CALON PESERTA DIDIK
@@ -189,7 +205,7 @@
                 </tbody>
             </table>
         </div>
-
+        </div>
         <!-- CATATAN & PETUNJUK RESMI -->
         <div class="p-4 rounded-2xl bg-gray-50 border border-gray-200 text-xs text-gray-600 space-y-1.5">
             <p class="font-bold text-gray-900">Catatan Penting:</p>

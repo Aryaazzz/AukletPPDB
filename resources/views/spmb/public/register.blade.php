@@ -205,7 +205,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                                NIK Siswa (16 Digit)
+                                NIK Siswa (16 Digit) <span class="text-rose-500">*</span>
                             </label>
                             <input type="tel" 
                                    name="nik" 
@@ -216,7 +216,7 @@
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                                Nomor Kartu Keluarga (KK)
+                                Nomor Kartu Keluarga (KK) <span class="text-rose-500">*</span>
                             </label>
                             <input type="tel" 
                                    name="no_kk" 
@@ -295,7 +295,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                                No. WhatsApp / HP Siswa
+                                                                 No. WhatsApp / HP Siswa <span class=\"text-rose-500\">*</span> <span class="text-rose-500">*</span>
                             </label>
                             <input type="tel" 
                                    name="telepon" 
@@ -306,9 +306,9 @@
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                                Email Siswa
+                                Email Siswa <span class="text-rose-500">*</span>
                             </label>
-                            <input type="email" 
+                            <input type="email" required 
                                    name="email" 
                                    x-model="form.email"
                                    placeholder="nama@email.com" 
@@ -332,7 +332,7 @@
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                                NPSN Sekolah Asal (8 Digit)
+                                NPSN Sekolah Asal (8 Digit) <span class="text-rose-500">*</span>
                             </label>
                             <input type="tel" 
                                    name="npsn_asal" 
@@ -392,9 +392,9 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                                Pekerjaan Ayah
+                                Pekerjaan Ayah <span class="text-rose-500">*</span>
                             </label>
-                            <input type="text" 
+                            <input type="text" required 
                                    name="pekerjaan_ayah" 
                                    x-model="form.pekerjaan_ayah"
                                    placeholder="PNS / Wiraswasta / Karyawan" 
@@ -403,9 +403,9 @@
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                                No. WhatsApp Ayah
+                                No. WhatsApp Ayah <span class="text-rose-500">*</span>
                             </label>
-                            <input type="tel" 
+                            <input type="tel" required 
                                    name="no_hp_ayah" 
                                    x-model="form.no_hp_ayah"
                                    placeholder="0812xxxxxxxx" 
@@ -441,9 +441,9 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                                Pekerjaan Ibu
+                                Pekerjaan Ibu <span class="text-rose-500">*</span>
                             </label>
-                            <input type="text" 
+                            <input type="text" required 
                                    name="pekerjaan_ibu" 
                                    x-model="form.pekerjaan_ibu"
                                    placeholder="Ibu Rumah Tangga / PNS / Swasta" 
@@ -452,7 +452,7 @@
 
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                                No. WhatsApp Ibu
+                                No. WhatsApp Ibu <span class="text-rose-500">*</span>
                             </label>
                             <input type="tel" 
                                    name="no_hp_ibu" 
