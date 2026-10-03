@@ -156,7 +156,7 @@
                     <x-status-badge :status="$p->status" />
                     @if ($p->status === 'diterima' && $p->kelas)
                         <div class="mt-1">
-                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
                                 {{ $p->kelas }}
                             </span>
                         </div>

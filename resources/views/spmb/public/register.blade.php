@@ -126,7 +126,6 @@
                             </p>
 
                             <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                                <span>Kuota: <strong class="text-slate-900 font-bold tabular-nums">{{ $j->kuota }} Kursi</strong></span>
                                 <span class="text-emerald-700 font-semibold flex items-center gap-1">
                                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                                     Pendaftaran Aktif

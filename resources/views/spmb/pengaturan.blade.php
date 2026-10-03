@@ -167,7 +167,7 @@
     <x-data-table 
         title="2. Daftar Jalur Pendaftaran & Relasi Tahun Ajaran"
         subtitle="Tabel pengalokasian kuota per jalur pendaftaran beserta relasi tahun ajaran terkait"
-        :headers="['Kode', 'Nama Jalur Pendaftaran', 'Tahun Ajaran', 'Kuota / Keterisian', 'Progress', 'Periode Buka - Tutup', 'Status', 'Aksi']"
+        :headers="['Kode', 'Nama Jalur Pendaftaran', 'Tahun Ajaran', 'Keterisian / Kuota', 'Progress', 'Periode Buka - Tutup', 'Status', 'Aksi']"
     >
         @foreach ($jalurs as $j)
             @php

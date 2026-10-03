@@ -39,22 +39,22 @@
     <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
         <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
             <span class="text-xs font-semibold text-slate-500 block uppercase tracking-wider">Total Pendaftar</span>
-            <div class="text-2xl font-bold text-slate-900 mt-1 tabular-nums">{{ number_format($totalPendaftar, 0, ',', '.') }}</div>
+            <div class="text-2xl font-bold mt-1 tabular-nums">{{ number_format($totalPendaftar, 0, ',', '.') }}</div>
             <span class="text-xs font-semibold text-slate-600 mt-1 block">Seluruh Jalur PPDB</span>
         </div>
         <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
             <span class="text-xs font-semibold text-amber-700 block uppercase tracking-wider">Menunggu</span>
-            <div class="text-2xl font-bold text-amber-700 mt-1 tabular-nums">{{ number_format($rekapStatus['menunggu'], 0, ',', '.') }}</div>
+            <div class="text-2xl font-bold mt-1 tabular-nums">{{ number_format($rekapStatus['menunggu'], 0, ',', '.') }}</div>
             <span class="text-xs text-slate-500 mt-1 block">Belum Diverifikasi</span>
         </div>
         <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
             <span class="text-xs font-semibold text-blue-700 block uppercase tracking-wider">Diverifikasi</span>
-            <div class="text-2xl font-bold text-blue-800 mt-1 tabular-nums">{{ number_format($rekapStatus['diverifikasi'], 0, ',', '.') }}</div>
+            <div class="text-2xl font-bold mt-1 tabular-nums">{{ number_format($rekapStatus['diverifikasi'], 0, ',', '.') }}</div>
             <span class="text-xs text-slate-500 mt-1 block">Berkas Valid</span>
         </div>
         <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">
             <span class="text-xs font-semibold text-emerald-700 block uppercase tracking-wider">Diterima</span>
-            <div class="text-2xl font-bold text-emerald-800 mt-1 tabular-nums">{{ number_format($rekapStatus['diterima'], 0, ',', '.') }}</div>
+            <div class="text-2xl font-bold mt-1 tabular-nums">{{ number_format($rekapStatus['diterima'], 0, ',', '.') }}</div>
             <span class="text-xs text-slate-500 mt-1 block">Lolos Seleksi</span>
         </div>
         <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm">

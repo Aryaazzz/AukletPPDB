@@ -11,11 +11,6 @@
 
     <!-- SUCCESS HERO CARD -->
     <div class="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-sm text-center space-y-3">
-        <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto border border-emerald-200">
-            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
-        </div>
 
         <div>
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200">
@@ -179,11 +174,6 @@
                class="text-xs font-bold text-slate-900 hover:underline flex items-center gap-1">
                 <span>Pantau Status Seleksi Ini</span>
                 <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </a>
-
-            <a href="{{ route('spmb.public.register') }}" 
-               class="text-xs font-semibold text-slate-500 hover:text-slate-900">
-                + Daftar Siswa Baru Lainnya
             </a>
         </div>
     </div>
